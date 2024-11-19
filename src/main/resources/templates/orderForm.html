@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img th:src="@{/img.png}" width="500" height="400"/>
+<form method="post" th:action="@{/orders}" th:object="${pizzaOrder}">
+
+    <ul>
+        <li th:each="pizza: ${pizzaOrder.pizzas}">
+            <span th:text="${pizza.name}">pizza name</span> </li>
+    </ul>
+
+    <h2>Deliver my pizza to..</h2>
+    <label for="deliveryName">deliveryName</label>
+    <input type="text" th:field="*{deliveryName}">
+    <span
+        th:if="${#fields.hasErrors('deliveryName')}"
+        th:errors="*{deliveryName}"
+    >some error</span>
+    <br> <br>
+
+    <label for="deliveryStreet">deliveryStreet</label>
+    <input type="text" th:field="*{deliveryStreet}">
+    <span
+            th:if="${#fields.hasErrors()}"
+            th:errors="*{deliveryStreet}"
+    ></span>
+    <br> <br>
+
+    <label for="deliveryCity">deliveryCity</label>
+    <input type="text" th:field="*{deliveryCity}"> <br><br>
+
+    <label for="deliveryState">deliveryState</label>
+    <input type="text" th:field="*{deliveryState}"> <br><br>
+
+    <label for="deliveryZip">deliveryZip</label>
+    <input type="text" th:field="*{deliveryZip}"> <br><br>
+    <h2>Here's how I'll pay</h2>
+    <label for="ccNumber">ccNumber</label>
+    <input type="text" th:field="*{ccNumber}"> <br><br>
+
+    <label for="ccExpiration">ccExpiration</label>
+    <input type="text" th:field="*{ccExpiration}"> <br><br>
+
+    <label for="ccCVV">ccCVV</label>
+    <input type="text" th:field="*{ccCVV}"> <br><br>
+    <button>submit order</button>
+</form>
+<a th:href="@{/design}">Design another pizza</a>
+
+</body>
+</html>

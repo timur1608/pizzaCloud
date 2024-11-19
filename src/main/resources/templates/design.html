@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Design your pizza!</h2>
+<img th:src="@{/img.png}" width="500" height="400"/>
+<form method="post" th:object="${pizza}">
+    <div>
+        <h3>Designate your wrap:</h3>
+        <div th:each="ingredient: ${wrap}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span> <br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your beacon:</h3>
+        <div th:each="ingredient: ${protein}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your tomato:</h3>
+        <div th:each="ingredient: ${veggies}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your salad:</h3>
+        <div th:each="ingredient: ${salad}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your mayonnaise:</h3>
+        <div th:each="ingredient: ${sauce}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your sausage:</h3>
+        <div th:each="ingredient: ${sausage}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Designate your cheese:</h3>
+        <div th:each="ingredient: ${cheese}">
+            <input th:field="*{ingredients}" type="checkbox"
+                   th:value="${ingredient.id}">
+            <span th:text="${ingredient.name}">INGREDIENT</span><br>
+            <span
+                    th:if="${#fields.hasErrors('ingredients')}"
+                    th:errors="*{ingredients}">CC Num Error</span><br>
+        </div>
+    </div>
+    <div>
+        <h3>Name your pizza creation: </h3>
+        <input th:field="*{name}" type="text">
+        <button>Submit Your Pizza</button>
+        <span
+                th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}">CC Num Error</span><br>
+
+    </div>
+</form>
+</body>
+</html>
